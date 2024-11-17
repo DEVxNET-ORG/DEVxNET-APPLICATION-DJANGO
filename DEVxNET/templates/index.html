@@ -476,11 +476,6 @@
                 <div class="col-lg-8">
                     <form action="{% url 'index' %}" method="post" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
                         {% csrf_token %}
-                        {% if messages %}
-                        {% for message in messages %}
-                        <div class="alert alert-info">{{ message }}</div>
-                        {% endfor %}
-                        {% endif %}
                         <div class="form-group col-lg-6">
                             <label for="first-name" class="visually-hidden">First Name</label>
                             <input type="text" id="fname" name="firstName" class="form-control"
@@ -512,7 +507,6 @@
                             </button>
                         </div>
                     </form>
-                    <div id="popupMessage">Your message has been sent successfully!</div>
                 </div>
             </div>
         </div>

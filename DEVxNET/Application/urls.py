@@ -1,16 +1,62 @@
 from django.urls import path
-from .views import CustomLoginView, manage_users, edit_user, view_profile, dashboard, index, thankyou, showProject, startPage, customer_list, delete_customer 
+from . import views
 
+# ===============================
+# Main Pages (Public)
+# ===============================
 urlpatterns = [
-    path('', index, name='index'),
-    path('/thankyou', thankyou, name='thankyou'),
-    path('/showproject', showProject, name='showProject'),
-    path('/startPage', startPage, name='startPage'),
-    path('accounts/login/', CustomLoginView.as_view(), name='login'),
-    path('dashboard/', dashboard, name='dashboard'),
-    path('manage-users/', manage_users, name='manage_users'),
-    path('edit-user/<int:user_id>/', edit_user, name='edit_user'),
-    path('profile/', view_profile, name='view_profile'),
-     path('customers/', customer_list, name='customer_list'),  
-    path('delete_customer/<int:id>/', delete_customer, name='delete_customer'),  
+    # Index Page
+    path('', views.index, name='index'),
+    # Project Page
+    path('showproject/', views.showProject, name='showproject'), 
+    # Thank You Page
+    path('thankyou/', views.thankyou, name='thankyou'),
+    # Start Page
+    path('start/', views.startPage, name='startPage'),
+
+# ===============================
+# Contact Management (Admin Only)
+# ===============================
+    # Customer List (Admin)
+    path('contact/', views.customer_list, name='customer_list'),
+    # Delete Contact (Admin)
+    path('contact/delete/<int:id>/', views.delete_customer, name='delete_customer'),
+
+# ===============================
+# Authentication and Dashboard
+# ===============================
+    # Login Page
+    path('login/', views.CustomLoginView.as_view(), name='login'),
+    # Logout Page
+    path('logout/', views.logout_view, name='logout'),
+    # Admin and Employee Dashboard
+    path('dashboard/', views.dashboard, name='dashboard'),
+    # Overall Page (Admin/Employee)
+    path('overall/', views.overall, name='overall'),
+
+# ===============================
+# User Management (Admin Only)
+# ===============================
+    # Admin: Manage Users
+    path('manage_users/', views.manage_users, name='manage_users'),
+    # Admin: Edit User
+    path('edit_user/<int:user_id>/', views.edit_user, name='edit_user'),
+    # Admin: Manage Managers
+    path('manage_managers/', views.manage_managers, name='manage_managers'),
+
+# ===============================
+# Employee Management (Manager Only)
+# ===============================
+    # Manager: Manage Employees
+    path('manage_employees/', views.manage_employees, name='manage_employees'),
+    # Manager: Create Employee
+    path('create_employee/', views.create_employee, name='create_employee'),
+    # Manager: Delete Employee
+    path('delete_employee/<int:user_id>/', views.delete_employee, name='delete_employee'),
+
+# ===============================
+# Employee Profile (Employee Only)
+# ===============================
+    # Employee: View Profile
+    path('view_profile/', views.view_profile, name='view_profile'),
 ]

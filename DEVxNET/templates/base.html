@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -7,9 +8,9 @@
     <title>{% block title %}DEVNETX{% endblock %}</title>
 
     <!-- Site favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'vendors/images/apple-touch-icon.png' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'vendors/images/favicon-32x32.png' %}" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'vendors/images/favicon-16x16.png' %}" />
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -17,16 +18,16 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
+
     <!-- CSS -->
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendors/styles/core.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/core.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/icon-font.min.css' %}" />
     <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='vendors/styles/icon-font.min.css') }}" />
+        href="{% static 'src/plugins/datatables/css/dataTables.bootstrap4.min.css' %}" />
     <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='src/plugins/datatables/css/dataTables.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='src/plugins/datatables/css/responsive.bootstrap4.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendors/styles/style.css') }}" />
+        href="{% static 'src/plugins/datatables/css/responsive.bootstrap4.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/styles/style.css' %}" />
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
@@ -62,7 +63,7 @@
     <div class="pre-loader">
         <div class="pre-loader-box">
             <div class="loader-logo">
-                <img src="vendors/images/deskapp-logo.svg" alt="" />
+                <img src="{% static 'vendors/images/deskapp-logo.svg' %}" alt="" />
             </div>
             <div class="loader-progress" id="progress_div">
                 <div class="bar" id="bar1"></div>
@@ -104,7 +105,7 @@
                             <ul>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/img.jpg') }}" alt="" />
+                                        <img src="{% static 'vendors/images/img.jpg' %}" alt="" />
                                         <h3>John Doe</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -114,8 +115,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/photo1.jpg') }}"
-                                            alt="" />
+                                        <img src="{% static 'vendors/images/photo1.jpg' %}" alt="" />
                                         <h3>Lea R. Frith</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -125,8 +125,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/photo2.jpg') }}"
-                                            alt="" />
+                                        <img src="{% static 'vendors/images/photo2.jpg' %}" alt="" />
                                         <h3>Erik L. Richards</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -136,8 +135,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/photo3.jpg') }}"
-                                            alt="" />
+                                        <img src="{% static 'vendors/images/photo3.jpg' %}" alt="" />
                                         <h3>John Doe</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -147,8 +145,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/photo4.jpg') }}"
-                                            alt="" />
+                                        <img src="{% static 'vendors/images/photo4.jpg' %}" alt="" />
                                         <h3>Renee I. Hansen</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -158,7 +155,7 @@
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="{{ url_for('static', filename='vendors/images/img.jpg') }}" alt="" />
+                                        <img src="{% static 'vendors/images/img.jpg' %}" alt="" />
                                         <h3>Vicki M. Coleman</h3>
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -167,6 +164,7 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
@@ -175,7 +173,7 @@
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <span class="user-icon">
-                            <img src="{{ url_for('static', filename='vendors/images/photo1.jpg') }}" alt="" />
+                            <img src="{% static 'vendors/images/photo1.jpg' %}" alt="" />
                         </span>
                         <span class="user-name">{{ username }}</span>
                     </a>
@@ -183,7 +181,7 @@
                         <a class="dropdown-item" href="#"><i class="dw dw-user1"></i> Profile</a>
                         <a class="dropdown-item" href="#"><i class="dw dw-settings2"></i> Setting</a>
                         <a class="dropdown-item" href="#"><i class="dw dw-help"></i> Help</a>
-                        <a class="dropdown-item" href="{{ url_for('logout') }}" <i class="dw dw-logout"></i> Log Out</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}"><i class="dw dw-logout"></i> Log Out</a>
                     </div>
                 </div>
             </div>
@@ -283,7 +281,7 @@
 
     <div class="left-side-bar">
         <div class="brand-logo">
-            <a href="{{ url_for('index') }}">
+            <a href="{% url 'index' %}">
                 <h1 class="dark-logo">DEVNETX</h1>
                 <h1 class="light-logo">DEVNETX</h1>
             </a>
@@ -295,12 +293,12 @@
             <div class="sidebar-menu">
 
                 <li>
-                    <a href="{{ url_for('overall') }}" class="dropdown-toggle no-arrow">
+                    <a href="{% url 'overall' %}" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-calendar4-week"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url_for('Customer_Message') }}" class="dropdown-toggle no-arrow">
+                    <a href="{% url 'customer_list' %}" class="dropdown-toggle no-arrow">
                         <span class="micon bi bi-calendar4-week"></span><span class="mtext">Contact Us</span>
                     </a>
                 </li>
@@ -323,17 +321,17 @@
 
     <!-- js -->
     <!-- js -->
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendors/scripts/core.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendors/scripts/script.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendors/scripts/process.js') }}"></script>
-    <script src="{{ url_for('static', filename='vendors/scripts/layout-settings.js') }}"></script>
-    <script src="{{ url_for('static', filename='src/plugins/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='src/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='src/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='src/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'vendors/scripts/core.js' %}"></script>
+    <script src="{% static 'vendors/scripts/script.min.js' %}"></script>
+    <script src="{% static 'vendors/scripts/process.js' %}"></script>
+    <script src="{% static 'vendors/scripts/layout-settings.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'vendors/scripts/dashboard3.js' %}"></script>
 
-    <script src="{{ url_for('static', filename='vendors/scripts/dashboard3.js') }}"></script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>

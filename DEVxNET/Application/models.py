@@ -6,8 +6,8 @@ from django.core.validators import RegexValidator
 class CustomUser(AbstractUser):
     ROLE_CHOICES = [
         ('admin', 'Admin'),
+        ('manager', 'Manager'),
         ('employee', 'Employee'),
-        ('client', 'Client'),
     ]
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='employee')
     phone_number = models.CharField(
@@ -18,26 +18,19 @@ class CustomUser(AbstractUser):
             RegexValidator(r'^\+?1?\d{9,15}$', 'Invalid phone number.')
         ]
     )
-    
-    groups = models.ManyToManyField(
-        Group,
-        related_name="customuser_groups",
-        blank=True,
-        verbose_name="groups",
-        help_text="The groups this user belongs to.",
-    )
-    user_permissions = models.ManyToManyField(
-        Permission,
-        related_name="customuser_permissions",
-        blank=True,
-        verbose_name="user permissions",
-        help_text="Specific permissions for this user."
-    )
+
+    def is_admin(self):
+        return self.role == 'admin'
+
+    def is_manager(self):
+        return self.role == 'manager'
+
+    def is_employee(self):
+        return self.role == 'employee'
 
     def __str__(self):
         return f"{self.username} ({self.get_role_display()})"
 
-# Employee Profile Model
 class EmployeeProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='employee_profile')
     tasks_completed = models.PositiveIntegerField(default=0)
@@ -46,6 +39,7 @@ class EmployeeProfile(models.Model):
     def __str__(self):
         return f"Profile of {self.user.username}"
 
+# Employee Profile Model
 class Contact(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)

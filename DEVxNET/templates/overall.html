@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}DEVNETX - Dashboard{% endblock %}
 {% block content %}
 <div class="title pb-20">
@@ -80,7 +81,7 @@
     <div class="col-md-4 mb-20">
         <a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
             <div class="img pb-30">
-                <img src="{{ url_for('static', filename='vendors/images/medicine-bro.svg') }}" alt="" />
+                <img src="{% static 'vendors/images/medicine-bro.svg' %}" alt="" />
             </div>
             <div class="content">
                 <h3 class="h4">Web Development</h3>
@@ -94,7 +95,7 @@
     <div class="col-md-4 mb-20">
         <a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
             <div class="img pb-30">
-                <img src="{{ url_for('static', filename='vendors/images/remedy-amico.svg') }}" alt="" />
+                <img src="{% static 'vendors/images/paper-map-cuate.svg' %}" alt="" />
             </div>
             <div class="content">
                 <h3 class="h4">SEO Services</h3>
@@ -107,7 +108,7 @@
     <div class="col-md-4 mb-20">
         <a href="#" class="card-box d-block mx-auto pd-20 text-secondary">
             <div class="img pb-30">
-                <img src="{{ url_for('static', filename='vendors/images/paper-map-cuate.svg') }}" alt="" />
+                <img src="{% static 'vendors/images/remedy-amico.svg' %}" alt="" />
             </div>
             <div class="content">
                 <h3 class="h4">Telebot Solutions</h3>
