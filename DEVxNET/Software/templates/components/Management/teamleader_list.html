@@ -1,0 +1,10 @@
+<ul>
+    {% for teamleader in teamleaders %}
+    <li>
+        <a href="{% url 'modify_teamleader' user_id=teamleader.id %}" class="dropdown-toggle no-arrow">
+            <span class="micon bi bi-calendar4-week"></span>
+            <span class="mtext">Modify {{ teamleader.first_name }} {{ teamleader.last_name }}</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
