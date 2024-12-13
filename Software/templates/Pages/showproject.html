@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'index' %}">
-                <h1>DEVNETX</h1>
+                <h1>DEVXNET</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
                         <a href="https://t.me/YourTelegramBotUsername" target="_blank" class="btn btn-brand me-2">
                             <i class="fab fa-telegram-plane"></i> Connect with Telegram
                         </a>
-                        <a href="mailto:your-email@example.com" class="btn btn-light ms-2">
+                        <a href="mailto:devxnetoffl@gamil.com" class="btn btn-light ms-2">
                             <i class="fas fa-envelope"></i> Connect with Email
                         </a>
                     </div>
@@ -359,7 +359,7 @@
             <div class="container">
                 <div class="row g-4 justify-content-between">
                     <div class="col-auto">
-                        <p class="mb-0">© Copyright DEVXNET. All Rights Reserved</p>
+                        <p>&copy; <span id="current-year"></span> DEVXNET. All Rights Reserved.</p>
                     </div>
                     <div class="col-auto">
                         <p class="mb-0">Designed by <a href="#">SANTHOSH RAJ</a></p>
@@ -371,6 +371,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 
 </html>
